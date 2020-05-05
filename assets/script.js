@@ -11,14 +11,18 @@ const specialChar = () => String.fromCharCode(Math.floor(Math.random() * 14 + 33
 // const specialChar = ['@', '#', '$', '%'];
 const password = [];
 const possibleChar = [];
-console.log( "connected")
-document.getElementById("generate").addEventListener("click", function() {
+// console.log( "connected")
+// const generateBtn = document.querySelector("generate");
+document.getElementById("generate").addEventListener("click", () => {
     console.log("on click")
+    
     let pwLengh = prompt("Choose between 8 and 128 characters."); 
         if(pwLengh < 8 || pwLengh > 128 ){
         alert("Password must have between 8 and 128 characters.");
+        generatePW();
         // if pwLengh includes (leters)
-        };
+        }
+    
         let hasNumberic = confirm("Do you whant numbers in your password? ");
      
 
@@ -76,8 +80,9 @@ document.getElementById("generate").addEventListener("click", function() {
 
     // var specialCharTrue = confirm("Include special characters in your password?");
 
-   
+
 })
+
 
 // function generatepw(userpwLenght)
 //     var password = '';
