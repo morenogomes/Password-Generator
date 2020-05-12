@@ -1,5 +1,7 @@
 const generateBtn = document.getElementById("generate");
 generateBtn.addEventListener("click", writePassword);
+// const generateBtn = document.getElementById("generate");
+// generateBtn.addEventListener("click", writePassword);
 
 const specialCharacters = "!@#$%^&*¶§∞£¢∞§¶";
 // let password = [];
@@ -10,7 +12,7 @@ function writePassword() {
   var password = generatePW();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-}
+};
 
 function generatePW() {
   let pwLengh = prompt("Choose between 8 and 128 characters.");        
@@ -19,13 +21,18 @@ function generatePW() {
     generatePW();
   }
 
-  let hasNumeric = confirm("Do you whant numbers in your password? ");
-  let hasUpperCase = confirm("Do you whant uppercase letters?");
-  let hasLowerCase = confirm("Do you whant lowercase letters?");
-//   let hasSpecialChar = confirm("Do you whant special character?");
+  let hasNumeric = confirm("Do you want numbers in your password?");
+  let hasLowerCase = confirm("Do you want lowercase letters?");
+  let hasUpperCase = confirm("Do you want uppercase letters?");
+  let hasSpecialChar = confirm("Do you want special character?");
 
   let minimumCount = 0;
 
+  
+  hasNumeric = false;
+  hasLowerCase = false;
+  hasUpperCase = false;
+  hasSpecialChar = false;
   //   //Empty minimum variabels
 
   let minimumNumeric = "";
@@ -33,18 +40,6 @@ function generatePW() {
   let minimumUpperCase = "";
   let minimumSpecialChar = "";
 
-  //Generator
-
-  let functionArray = {
-    getNumbers: () => String.fromCharCode(Math.floor(Math.random() * 10 + 48)),
-
-    getLowerCase: () => String.fromCharCode(Math.floor(Math.random() * 26 + 97)),
-
-    getUpperCase: () => String.fromCharCode(Math.floor(Math.random() * 26 + 65)),
-
-    getSpecialChar: () => specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-  };
-  
   if (hasNumeric === true) {
     minimumNumeric = functionArray.getNumbers();
     minimumCount++;
@@ -61,6 +56,21 @@ function generatePW() {
     minimumSpecialChar = getSpecialChar();
     minimumCount++;
   }
+
+  
+  //Generator
+  let functionArray = {
+    getNumbers: () => String.fromCharCode(Math.floor(Math.random() * 10 + 48)
+    ),
+
+    getLowerCase: () => String.fromCharCode(Math.floor(Math.random() * 26 + 97)),
+
+    getUpperCase: () => String.fromCharCode(Math.floor(Math.random() * 26 + 65)),
+
+    getSpecialChar: () => String.specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+  };
+  console.log(functionArray);
+ 
 
     let generatedPW = "";
 
